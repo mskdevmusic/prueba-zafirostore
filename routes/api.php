@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/products', [ProductsController::class, 'insertProduct']);
+Route::get('/products/{cant}', [ProductsController::class, 'paginationProducts']);

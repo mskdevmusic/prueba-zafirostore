@@ -34,6 +34,12 @@ class ProductsController extends Controller
             );
         }
 
-        return response($jsonresponse, $jsonresponse["status"])->header('Content-Type', 'application/json');
+        return response($jsonresponse, $jsonresponse["status"]);
+    }
+
+    public function paginationProducts($cant)
+    {
+        $data = Products::simplePaginate($cant);
+        return response($data, 200)->header('Content-Type', 'application/json');
     }
 }
