@@ -9,11 +9,8 @@ class CategoryController extends Controller
 {
     public function getAllCategory($order = 'asc')
     {
-        if($order === 'desc'){
-            $listCategory = Category::orderBy('name', 'desc')->get();
-        }else{
-            $listCategory = Category::orderBy('name', 'asc')->get();
-        }
+        $categoryModel = new Category();
+        $listCategory = $categoryModel->getAllTask($order);
         
         return response($listCategory, 200)->header('Content-Type', 'application/json');
     }
