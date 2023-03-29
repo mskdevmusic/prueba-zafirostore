@@ -23,4 +23,11 @@ class Category extends Model
 
         return $resultQuery;
     }
+
+    public function insertCategory($name)
+    {
+        $resultQuery = DB::select("CALL SP_INSERT_CATEGORY('" . $name . "');");
+
+        return $resultQuery;
+    }
 }

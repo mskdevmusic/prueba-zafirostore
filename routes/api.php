@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/category/{order}', [CategoryController::class, 'getAllCategory']);
+Route::post('/category', [CategoryController::class, 'insertCategory']);
