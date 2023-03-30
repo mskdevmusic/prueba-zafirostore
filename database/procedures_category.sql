@@ -12,3 +12,19 @@ CREATE PROCEDURE SP_GET_ALL_CATEGORY (
         END IF;
 	END
 //
+
+
+DELIMITER //
+CREATE PROCEDURE SP_INSERT_CATEGORY (
+	IN _name varchar(255))
+    
+	BEGIN
+    	SELECT COUNT(*) INTO @contador FROM CATEGORY WHERE name = _name;
+        
+    	if @contador = 0 THEN
+            INSERT INTO CATEGORY (id, name, slug, created_at, updated_at, status) VALUES (NULL, _name, lcase(_name), NOW(), NULL, 1);
+        ELSE
+        	INSERT INTO CATEGORY (id, name, slug, created_at, updated_at, status) VALUES (NULL, _name, CONCAT(lcase(_name), '-', @contador), NOW(), NULL, 1);
+        END IF;
+	END
+//
