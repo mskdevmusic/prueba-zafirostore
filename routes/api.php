@@ -19,11 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< HEAD
 Route::get('/category/{order}', [CategoryController::class, 'getAllCategory']);
 Route::post('/category', [CategoryController::class, 'insertCategory']);
 Route::post('/products', [ProductsController::class, 'insertProduct']);
-=======
-Route::post('/products', [ProductsController::class, 'insertProduct']);
 Route::get('/products/{cant}', [ProductsController::class, 'paginationProducts']);
->>>>>>> octavopunto
+Route::get('/products-vs-category', [ProductsController::class, 'getCategoryVsProducts']);
+

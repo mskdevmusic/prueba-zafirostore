@@ -24,4 +24,11 @@ class Products extends Model
 
         return $resultQuery;
     }
+
+    public function getCategoryVsProducts()
+    {
+        $resultQuery = DB::select("CALL SP_GET_CATEGORY_VS_PRODUCTS();");
+
+        return $resultQuery;
+    }
 }

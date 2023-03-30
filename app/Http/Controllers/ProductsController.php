@@ -42,4 +42,13 @@ class ProductsController extends Controller
         $data = Products::simplePaginate($cant);
         return response($data, 200)->header('Content-Type', 'application/json');
     }
+
+    public function getCategoryVsProducts()
+    {
+        $productModel = new Products();
+
+        $result = $productModel->getCategoryVsProducts();
+        
+        return response($result, 200)->header('Content-Type', 'application/json');
+    }
 }

@@ -23,3 +23,10 @@ CREATE PROCEDURE SP_INSERT_PRODUCTS (
         END IF;
 	END
 //
+
+DELIMITER //
+CREATE PROCEDURE SP_GET_CATEGORY_VS_PRODUCTS ()
+	BEGIN
+    	SELECT c.id, c.name, c.slug, c.created_at, c.updated_at, c.status, (SELECT COUNT(*) FROM products WHERE category_id = c.id) 'total_products_category' FROM category c;
+	END
+//
