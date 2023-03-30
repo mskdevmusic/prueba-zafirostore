@@ -1,6 +1,6 @@
 <?php
-
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/category/{order}', [CategoryController::class, 'getAllCategory']);
 Route::post('/category', [CategoryController::class, 'insertCategory']);
+Route::post('/products', [ProductsController::class, 'insertProduct']);
